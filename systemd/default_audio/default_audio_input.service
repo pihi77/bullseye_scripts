@@ -1,0 +1,13 @@
+[Unit]
+
+Description=Default audio input
+
+After=default.target
+
+[Service]
+
+ExecStart=/home/pihi/StartupScripts/default_source_input.sh
+
+[Install]
+
+WantedBy=default.target
