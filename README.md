@@ -1,6 +1,6 @@
 # debian_scripts
 
-Scripts after installation Debian<br>
+Scripts after Debian installation <br>
 
 install apche and https configuration with self-signed certificate<br>
 install firewall and add basic rules<br>
