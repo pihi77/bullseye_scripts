@@ -11,7 +11,6 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Utilities")
-            echo "Bude sa inštalovať: build-essentials, restricted-extras, Microsoft font compatibility"
             source ./utilities/utilities-install.sh
             read -p "Press any key to continue... " -n1 -s
             clear
@@ -22,30 +21,27 @@ do
             clear
             ;;
         "Firewall")
-            echo "Firewall + GUI a základné pravidlá"
             source ./firewall/firewall.sh
             read -p "Press any key to continue... " -n1 -s
             clear
             ;;
         "Swap")
-            echo "Swap to ram"
             source ./swap/swap-to-ram.sh
+            read -p "Press any key to continue... " -n1 -s
+            clear
             ;;
         "Apache https")
-            echo "Apache, SSL certifikát a presmerovanie http->https"
             source ./apache/apache-https-install.sh
             read -p "Press any key to continue... " -n1 -s
             clear
             ;;
         "PHP")
-            echo "PHP 8.1, Xdebug"
             source ./php/php-install.sh
             source ./php/xdebug-install.sh
             read -p "Press any key to continue... " -n1 -s
             clear
             ;;
         "MariaDB")
-            echo "MariaDB, povolenie vkladania prázdnych znakov do databázy, vytvorenie užívateľa a pridelenie práv"
             source ./mariadb/mariadb-install.sh
             source ./mariadb/mariadb-vlozit-prazdne-znaky.sh
             source ./mariadb/mariadb-create-user.sh
