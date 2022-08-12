@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
+source ./config/config.sh
 cd $(dirname $0)
 default_dir=$(pwd)
 
 # set files
 service_dir="/etc/systemd/system"
+printf "Adresár services: ${COLOR1} $config_file ${NC}"
 name=$1
 
 tmp_service="$name/$name.service"
