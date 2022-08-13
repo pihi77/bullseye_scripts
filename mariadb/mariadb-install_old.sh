@@ -5,7 +5,7 @@ source ./config/config.sh
 echo "MariaDB, povolenie vkladania prázdnych znakov do databázy, vytvorenie užívateľa a pridelenie práv"
 echo
 # system update
-source ./system_update/system_update.sh
+source ./system_update/system_update_old.sh
 cd $(dirname $0)
 
 # MariaDB install

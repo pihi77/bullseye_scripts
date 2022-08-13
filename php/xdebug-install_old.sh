@@ -5,7 +5,7 @@ source ./config/config.sh
 echo "XDebug"
 echo
 # system update
-source ./system_update/system_update.sh
+source ./system_update/system_update_old.sh
 cd $(dirname $0)
 
 # install xdebug

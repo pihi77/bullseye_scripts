@@ -4,7 +4,7 @@ source ./config/config.sh
 echo "Bude sa inštalovať: build-essentials, restricted-extras, Microsoft font compatibility"
 echo
 # system update
-source ./system_update/system_update.sh
+source ./system_update/system_update_old.sh
 cd $(dirname $0)
 
 # utils

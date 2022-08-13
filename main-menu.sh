@@ -11,45 +11,45 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Utilities")
-            source ./utilities/utilities-install.sh
+            source ./utilities/utilities-install_old.sh
             read -p "Press any key to continue... " -n1 -s
             clear
             ;;
         "Grub")
-            source ./grub/set-grub-timeout.sh
+            source ./grub/set-grub-timeout_old.sh
             read -p "Press any key to continue... " -n1 -s
             clear
             ;;
         "Firewall")
-            source ./firewall/firewall.sh
+            source ./firewall/firewall_old.sh
             read -p "Press any key to continue... " -n1 -s
             clear
             ;;
         "Swap")
-            source ./swap/swap-to-ram.sh
+            source ./swap/swap-to-ram_old.sh
             read -p "Press any key to continue... " -n1 -s
             clear
             ;;
         "Apache https")
-            source ./apache/apache-https-install.sh
+            source ./apache/apache-https-install_old.sh
             read -p "Press any key to continue... " -n1 -s
             clear
             ;;
         "PHP")
-            source ./php/php-install.sh
-            source ./php/xdebug-install.sh
+            source ./php/php-install_old.sh
+            source ./php/xdebug-install_old.sh
             read -p "Press any key to continue... " -n1 -s
             clear
             ;;
         "MariaDB")
-            source ./mariadb/mariadb-install.sh
-            source ./mariadb/mariadb-vlozit-prazdne-znaky.sh
-            source ./mariadb/mariadb-create-user.sh
+            source ./mariadb/mariadb-install_old.sh
+            source ./mariadb/mariadb-vlozit-prazdne-znaky_old.sh
+            source ./mariadb/mariadb-create-user_old.sh
             read -p "Press any key to continue... " -n1 -s
             clear
             ;;
         "SSH key")
-            source ./ssh/create-ssh-key.sh
+            source ./ssh/create-ssh-key_old.sh
             read -p "Press any key to continue... " -n1 -s
             clear
             ;;

@@ -6,7 +6,7 @@ source ./config/config.sh
 echo "Firewall + GUI a základné pravidlá"
 echo
 # system update
-source ./system_update/system_update.sh
+source ./system_update/system_update_old.sh
 cd $(dirname $0)
 
 clear
