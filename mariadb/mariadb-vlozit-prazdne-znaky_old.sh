@@ -2,19 +2,19 @@
 
 #header
 source ./config/config.sh
+echo "Povolenie vkladania prázdnych znakov do databázy"
+echo
 cd $(dirname $0)
 
-source ./dialog/yesno.sh "MariaDB" "Konfigurácia databázy" "\n Chceš povoliť vkladanie prázdnych znakov do databázy ?" 8 60
-if [[ $response == 0 ]]
+read -p "Chceš povoliť vkladanie prázdnych znakov do databázy?" -n 1 -r
+echo    # (optional) move to a new line
+if [[  $REPLY =~ ^[YyAa]$ ]]
 then
-    clear
     echo "Povoľujem"
     config_file="/etc/mysql/mariadb.conf.d/50-server.cnf" 
     text="sql-mode=''"
     echo $text | sudo tee -a "$config_file"
     sudo systemctl restart mariadb
     sudo systemctl status mariadb
-    read -p "Press any key to continue... " -n1 -s
-elif [[ $response == 1 ]]
-    goto start 
 fi
+

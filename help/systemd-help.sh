@@ -28,4 +28,5 @@ printf "${COLOR1}"
 for i in $(ls -d */); do echo ${i%%/}; done
 printf "${NC}"
 echo
+exec bash
 exit 0

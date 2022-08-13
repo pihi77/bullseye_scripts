@@ -17,7 +17,7 @@
 #fi
 
 # update
-source ./dialog/yesno.sh "$HEADER" "Aktualizácia systému" "\n Chceš aktualizovať ?" 8 60
+source ./dialog/yesno.sh "System update" "Aktualizácia systému" "\n Chceš aktualizovať ?" 8 60
 if [[ $response == 0 ]]
 then
     clear
@@ -27,7 +27,7 @@ then
 fi
 
 # autoremove
-source ./dialog/yesno.sh "$HEADER" "Automatické čistenie systému" "\n Chceš odstrániť nepotrebné balíčky ?" 8 60
+source ./dialog/yesno.sh "System update" "Automatické čistenie systému" "\n Chceš odstrániť nepotrebné balíčky ?" 8 60
 if [[ $response == 0 ]]
 then
     clear

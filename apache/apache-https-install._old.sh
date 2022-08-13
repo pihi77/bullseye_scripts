@@ -2,26 +2,27 @@
 
 #header
 source ./config/config.sh
-
+echo "Apache, SSL certifikát a presmerovanie http->https"
+echo            
 # system update
 source ./system_update/system_update.sh
 cd $(dirname $0)
 
 #install apache
-source ./dialog/yesno.sh "Apache2" "Apache" "\n Chceš inštalovať apache?" 8 60
-if [[ $response == 0 ]]
+read -p "Chceš inštalovať apache?" -n 1 -r
+echo    # (optional) move to a new line
+if [[  $REPLY =~ ^[YyAa]$ ]]
 then
-    clear
     echo "Inštalujem apache"
     sudo apt-get update
     sudo apt-get install apache2 openssl
 fi
 
 #set modules
-source ./dialog/yesno.sh "Apache2" "Apache" "\n Chceš nakonfigurovať https?" 8 60
-if [[ $response == 0 ]]
+read -p "Chceš nakonfigurovať https?" -n 1 -r
+echo    # (optional) move to a new line
+if [[  $REPLY =~ ^[YyAa]$ ]]
 then
-    clear
     echo "Nastavujem moduly"
     sudo a2enmod ssl
     sudo a2enmod rewrite
@@ -67,9 +68,6 @@ then
 fi
 
 #restart apache
-clear
 sudo systemctl restart apache2.service
 sudo systemctl status  apache2.service
-sudo a2query -m
-read -p "Press any key to continue... " -n1 -s
 

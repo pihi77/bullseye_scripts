@@ -9,10 +9,10 @@ source ./system_update/system_update.sh
 cd $(dirname $0)
 
 # install xdebug
-source ./dialog/yesno.sh "XDebug" "Inštalácia balíčkov" "\n Chceš inštalovať XDebug?" 8 60
-if [[ $response == 0 ]]
+read -p "Chceš inštalovať XDebug?" -n 1 -r
+echo    # (optional) move to a new line
+if [[  $REPLY =~ ^[YyAa]$ ]]
 then
-    clear
     echo "Inštalujem XDebug"
     sudo apt install php-xdebug -y
 
@@ -30,7 +30,5 @@ then
 fi
 
 #restart apache
-clear
 sudo systemctl restart apache2
 sudo systemctl status apache2
-read -p "Press any key to continue... " -n1 -s

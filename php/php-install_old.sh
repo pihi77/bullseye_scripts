@@ -9,10 +9,10 @@ source ./system_update/system_update.sh
 cd $(dirname $0)
 
 # install php
-source ./dialog/yesno.sh "PHP" "Inštalácia balíčkov" "\n Chceš inštalovať PHP 8.1 ?" 8 60
-if [[ $response == 0 ]]
+read -p "Chceš inštalovať PHP 8.1?" -n 1 -r
+echo    # (optional) move to a new line
+if [[  $REPLY =~ ^[YyAa]$ ]]
 then
-    clear
     echo "Inštalujem PHP 8.1"
     sudo apt -y install lsb-release apt-transport-https ca-certificates wget
     sudo wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
@@ -54,7 +54,5 @@ then
 fi
 
 #show installed version and modules
-clear
 php -v
 php -m
-read -p "Press any key to continue... " -n1 -s

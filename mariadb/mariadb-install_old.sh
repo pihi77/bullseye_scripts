@@ -9,10 +9,10 @@ source ./system_update/system_update.sh
 cd $(dirname $0)
 
 # MariaDB install
-source ./dialog/yesno.sh "MariaDB" "Inštalácia balíčkov" "\n Chceš inštalovať MariaDB 10.5 ?" 8 60
-if [[ $response == 0 ]]
+read -p "Chceš inštalovať MariaDB 10.5?" -n 1 -r
+echo    # (optional) move to a new line
+if [[  $REPLY =~ ^[YyAa]$ ]]
 then
-    clear
     echo "Inštalujem MariaDB 10.5"
     sudo apt -y install curl software-properties-common gnupg2 -y
     sudo apt -y upgrade
@@ -42,8 +42,7 @@ then
     Reload privilege tables now? [Y/n] y
     "
     sudo mariadb-secure-installation
-    sudo systemctl status mariadb
-    read -p "Press any key to continue... " -n1 -s
-elif [[ $response == 1 ]]
-    goto start 
 fi
+
+sudo systemctl status mariadb
+

@@ -7,7 +7,7 @@ source ./system_update/system_update.sh
 cd $(dirname $0)
 
 # utils
-source ./dialog/yesno.sh "$HEADER" "Inštalácia balíčkov" "\n Chceš inštalovať build-essential ?" 8 60
+source ./dialog/yesno.sh "Advanced Packaging Tool" "Inštalácia balíčkov" "\n Chceš inštalovať build-essential ?" 8 60
 if [[ $response == 0 ]]
 then
     clear
@@ -24,7 +24,7 @@ fi
 #fi
 
 # restricted-extras
-source ./dialog/yesno.sh "$HEADER" "Inštalácia balíčkov" "\n Chceš inštalovať restricted-extras ?" 8 60
+source ./dialog/yesno.sh "Advanced Packaging Tool" "Inštalácia balíčkov" "\n Chceš inštalovať restricted-extras ?" 8 60
 if [[ $response == 0 ]]
 then
     clear
@@ -41,7 +41,7 @@ fi
 #fi
 
 # microsoft fonts
-source ./dialog/yesno.sh "$HEADER" "Inštalácia balíčkov" "\n Chceš inštalovať kompatibilitu s fontami Microsoft ?" 8 60
+source ./dialog/yesno.sh "Advanced Packaging Tool" "Inštalácia balíčkov" "\n Chceš inštalovať kompatibilitu s fontami Microsoft ?" 8 60
 if [[ $response == 0 ]]
 then
     clear
