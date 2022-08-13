@@ -1,53 +1,47 @@
 #!/usr/bin/env bash
-
-#header
 source ./config/config.sh
-echo "Firewall + GUI a základné pravidlá"
-echo
-# system update
-source ./system_update/system_update.sh
-cd $(dirname $0)
 
-# firewal install   
-read -p "Chceš inštalovať firewall?" -n 1 -r
-echo    # (optional) move to a new line
-if [[  $REPLY =~ ^[YyAa]$ ]]
-then
-    echo "Inštalujem firewall"
-    sudo apt install ufw gufw -y
-fi
+# define rules
+declare -a array 
+# http
+declare -a row1=( "http" "sudo ufw allow http" )
+array[0]="$(stringify row1)"
+# https
+declare -a row2=( "https" "sudo ufw allow https" )
+array[1]="$(stringify row2)"
+# GSConnect
+declare -a row3=( "GSConnect" "sudo ufw allow proto tcp to any port 1714:1764" "sudo ufw allow proto udp to any port 1714:1764" )
+array[2]="$(stringify row3)"
 
-# enable rules
-pravidlo=http
-read -p "Chceš povoliť $pravidlo ?" -n 1 -r
-echo    # (optional) move to a new line
-if [[  $REPLY =~ ^[YyAa]$ ]]
-then
-    echo "Nastavujem $pravidlo"
-    sudo ufw allow http
-fi
+for row in "${array[@]}"
+do
+    eval "$(unstringify thisRow "$row")"
+  
+    for i in "${!thisRow[@]}"; do 
 
-pravidlo=https
-read -p "Chceš povoliť $pravidlo ?" -n 1 -r
-echo    # (optional) move to a new line
-if [[  $REPLY =~ ^[YyAa]$ ]]
-then
-    echo "Nastavujem $pravidlo"
-    sudo ufw allow https
-fi
+        if [ $i == 0 ]
+        then
+            nazov=${thisRow[$i]}
+        else
+            #echo "Pravidlo: $nazov Prikaz: ${thisRow[$i]}"
+            prikaz=${thisRow[$i]}
+            source ./dialog/yesno.sh "Firewall ( ufw )" "$nazov" "\nChceš povoliť ?\n\n  $prikaz" 8 60
+            if [[ $response == 0 ]]
+            then
+                clear
+                echo "Nastavujem $nazov"
+                echo "$($prikaz)"
+                #read -p "Press any key to continue... " -n1 -s
+            fi
+        fi
+    
+    done
 
-pravidlo=GSCoYyAaect
-read -p "Chceš povoliť $pravidlo ?" -n 1 -r
-echo    # (optional) move to a new line
-if [[  $REPLY =~ ^[YyAa]$ ]]
-then
-    echo "Nastavujem $pravidlo"
-    sudo ufw allow proto tcp to any port 1714:1764
-    sudo ufw allow proto udp to any port 1714:1764
-fi
-
-# firewal status
-echo "Zapínam firewall"
-sudo ufw enable
+done
+clear
 sudo ufw status
+read -p "Press any key to continue... " -n1 -s
+
+
+
 

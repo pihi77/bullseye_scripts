@@ -14,4 +14,6 @@ install utilities ( build-essentials, restricted-extras, Microsoft font compatib
 
 Use:
 
-<code>bash ./main-menu.sh</code>
+text mode: <code>bash ./main-menu.sh</code>
+
+dialog mode: <code>bash ./menu.sh</code>
