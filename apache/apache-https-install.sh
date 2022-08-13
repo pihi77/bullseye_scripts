@@ -4,7 +4,7 @@
 source ./config/config.sh
 
 # system update
-source ./system_update/system_update_old.sh
+source ./system_update/system_update.sh
 cd $(dirname $0)
 
 #install apache
