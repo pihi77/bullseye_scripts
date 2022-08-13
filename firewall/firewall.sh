@@ -13,6 +13,16 @@ array[1]="$(stringify row2)"
 declare -a row3=( "GSConnect" "sudo ufw allow proto tcp to any port 1714:1764" "sudo ufw allow proto udp to any port 1714:1764" )
 array[2]="$(stringify row3)"
 
+
+# firewal install   
+source ./dialog/yesno.sh "Firewall ( ufw )" "ufw + GUI ( gufw )" "\nChceš inštalovať firewall ?" 8 60
+if [[ $response == 0 ]]
+then
+    clear
+    echo "Inštalujem firewall"
+    sudo apt install ufw gufw -y
+fi
+
 for row in "${array[@]}"
 do
     eval "$(unstringify thisRow "$row")"
