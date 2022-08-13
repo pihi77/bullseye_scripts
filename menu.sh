@@ -31,9 +31,9 @@ MENU="Vyber jednu z nasledujúcich možností:"
 #MENU=""
 OPTIONS=(1 "Utilities - build-essentials, restricted-extras, Microsoft font compatibility"
          2 "Grub set timeout"
-         3 "Firewall, Basic rules"
+         3 "Firewall, Basic rules ( http, https, ... )"
          4 "Swap to RAM"
-         5 "Apache, SSL certificate, HTTPS redirect"
+         5 "Apache, SSL certificate ( self signed ), HTTPS redirect"
          6 "PHP 8.1, XDebug"
          7 "MariaDB, Empty chars, Create user"
          8 "SSH key, ssh-agent"
@@ -51,39 +51,30 @@ CHOICE=$(dialog --clear \
 clear
 case $CHOICE in
         1)
-            echo "Utilities"
             goto utilities
             ;;
         2)
-            echo "Grub"
             goto grub
             ;;
         3)
-            echo "Firewall"
             goto firewall
             ;;
         4)
-            echo "Swap"
             goto swap
             ;;
         5)
-            echo "Apache & HTTPS"
             goto apache
             ;;
         6)
-            echo "PHP 8.1"
             goto php
             ;;
         7)
-            echo "MariaDB 10.5"
             goto mariadb
             ;;
         8)
-            echo "SSH key"
             goto ssh
             ;;
         9)
-            echo "System service"
             goto service
             ;;
 esac
@@ -128,19 +119,3 @@ goto start
 source ./help/systemd-help.sh
 read -p "Press any key to continue... " -n1 -s
 goto start
-
-#firewall:#
-echo "Allow"
-read -p "Press any key to continue... " -n1 -s
-goto start
-
-#firewall:#
-echo "Allow"
-read -p "Press any key to continue... " -n1 -s
-goto start
-
-#firewall:#
-echo "Allow"
-read -p "Press any key to continue... " -n1 -s
-goto start
-
