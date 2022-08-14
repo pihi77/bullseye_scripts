@@ -39,7 +39,7 @@ then
     then
         RETVAL=~/.ssh/key      
     fi
-    path_to_key=$RETVAL
+    keypath=$RETVAL
     clear
     echo "Pridávam klúč $keypath"
     ssh-add $keypath
