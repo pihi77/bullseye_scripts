@@ -10,50 +10,22 @@ cd $(dirname $0)
 source ./dialog/yesno.sh "Advanced Packaging Tool" "Inštalácia balíčkov" "\n Chceš inštalovať build-essential ?" 8 60
 if [[ $response == 0 ]]
 then
-    clear
-    sudo apt install build-essential dkms linux-headers-$(uname -r) -y
-    read -p "Press any key to continue... " -n1 -s
+    dialog --prgbox   "build-essential" "sudo apt install build-essential dkms linux-headers-$(uname -r) -y"  20 80
+    #sudo apt install build-essential dkms linux-headers-$(uname -r) -y
 fi
-#pravidlo="build-essential"
-#read -p "Chceš inštalovať $pravidlo ?" -n 1 -r
-#echo    # (optional) move to a new line
-#if [[  $REPLY =~ ^[YyAa]$ ]]
-#then
-#    echo "Inštalujem $pravidlo"
-#    sudo apt install build-essential dkms linux-headers-$(uname -r) -y
-#fi
 
 # restricted-extras
 source ./dialog/yesno.sh "Advanced Packaging Tool" "Inštalácia balíčkov" "\n Chceš inštalovať restricted-extras ?" 8 60
 if [[ $response == 0 ]]
 then
-    clear
-    sudo apt install ttf-mscorefonts-installer rar unrar libavcodec-extra gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-vaapi -y
-    read -p "Press any key to continue... " -n1 -s
+    dialog --prgbox   "restricted-extras" "sudo apt install ttf-mscorefonts-installer rar unrar libavcodec-extra gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-vaapi -y"  20 80
+    #sudo apt install ttf-mscorefonts-installer rar unrar libavcodec-extra gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-vaapi -y
 fi
-#pravidlo=Extras
-#read -p "Chceš inštalovať $pravidlo ?" -n 1 -r
-#echo    # (optional) move to a new line
-#if [[  $REPLY =~ ^[YyAa]$ ]]
-#then
-#    echo "Inštalujem $pravidlo"
-#   sudo apt install ttf-mscorefonts-installer rar unrar libavcodec-extra gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-vaapi -y
-#fi
 
 # microsoft fonts
 source ./dialog/yesno.sh "Advanced Packaging Tool" "Inštalácia balíčkov" "\n Chceš inštalovať kompatibilitu s fontami Microsoft ?" 8 60
 if [[ $response == 0 ]]
 then
-    clear
-    sudo apt install fonts-crosextra-carlito fonts-crosextra-caladea -y
-    read -p "Press any key to continue... " -n1 -s
+    dialog --prgbox   "Microsoft fonts" "sudo apt install fonts-crosextra-carlito fonts-crosextra-caladea -y"  20 80
+    #sudo apt install fonts-crosextra-carlito fonts-crosextra-caladea -y
 fi
-#pravidlo=Fonts
-#read -p "Chceš inštalovať $pravidlo ?" -n 1 -r
-#echo    # (optional) move to a new line
-#if [[  $REPLY =~ ^[YyAa]$ ]]
-#then
-#    echo "Inštalujem $pravidlo"
-#    sudo apt install fonts-crosextra-carlito fonts-crosextra-caladea -y
-#fi
-

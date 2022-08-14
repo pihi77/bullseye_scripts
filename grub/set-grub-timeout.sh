@@ -30,10 +30,9 @@ then
 
         echo "$(grep -v "$pattern" $config_file)" | sudo tee $config_file
         echo $replace | sudo tee -a $config_file
-
+        dialog --textbox $config_file 40 80
         # Update GRUB
-        sudo update-grub
-        read -p "Press any key to continue... " -n1 -s
+        dialog --prgbox   "Update GRUB" "sudo update-grub"  20 80
 fi
 
 

@@ -48,9 +48,9 @@ do
     done
 
 done
-clear
-sudo ufw status
-read -p "Press any key to continue... " -n1 -s
+status=$(sudo ufw status)
+dialog --msgbox "$status" 30 100
+
 
 
 
