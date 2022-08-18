@@ -78,7 +78,7 @@ then
     sudo make localmodconfig
     sudo make bzImage
     sudo make modules && sudo make modules_install
-    Sudo make install
+    sudo make install
     cd ../
     read -p "Press any key to continue... " -n1 -s
 fi
