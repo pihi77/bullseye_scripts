@@ -22,7 +22,7 @@ start=${1:-start}
 goto "$start" 
 #start:#
 
-HEIGHT=16
+HEIGHT=18
 WIDTH=90
 CHOICE_HEIGHT=4
 #BACKTITLE="     PIHI s.r.o. - Marek Mihók"
@@ -38,6 +38,7 @@ OPTIONS=(1 "Utilities - build-essentials, restricted-extras, Microsoft font comp
          7 "MariaDB, Empty chars, Create user"
          8 "SSH key, ssh-agent"
          9 "System service ( systemd )"
+         10 "Custom kernel build"
          )
 
 CHOICE=$(dialog --clear \
@@ -76,6 +77,9 @@ case $CHOICE in
             ;;
         9)
             goto service
+            ;;
+        10)
+            goto kernel
             ;;
 esac
 exit 0
@@ -118,4 +122,8 @@ goto start
 #service:#
 source ./help/systemd-help.sh
 read -p "Press any key to continue... " -n1 -s
+goto start
+
+#kernel:#
+source ./kernel/kernel-build.sh
 goto start
