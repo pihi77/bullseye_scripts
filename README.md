@@ -20,3 +20,4 @@ create ssh key and add to ssh-agent<br>
 config swap to ram<br>
 install or remove service using systemd<br>
 install utilities ( build-essentials, restricted-extras, Microsoft font compatibility )<br>
+build custom kernel
